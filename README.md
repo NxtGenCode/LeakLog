@@ -1,73 +1,115 @@
-# React + TypeScript + Vite
+LeakLog 💧
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A leak detection job documentation web app
 
-Currently, two official plugins are available:
+LeakLog is a lightweight web application built to document leak detection jobs clearly and consistently. It provides a focused interface for recording inspection details, notes, and findings, helping technicians keep job documentation organized and easy to review.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is currently scoped specifically for leak detection workflows.
 
-## React Compiler
+🧭 Why LeakLog
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Leak detection jobs often require quick documentation under time pressure. Notes, photos, and details are commonly spread across phones, paper, or multiple apps.
 
-## Expanding the ESLint configuration
+LeakLog was created to:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+centralize job documentation
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+reduce missed details
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+provide consistent, review-ready records
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The goal is not to overcomplicate the workflow, but to support how technicians actually work in the field.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+✨ Features
+Current
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Leak detection job documentation
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Structured input for inspection details
+
+Form validation with clear user feedback
+
+Clean, field-friendly UI
+
+Reusable input components (Email, Password, Confirm Password)
+
+Planned
+
+Photo uploads for inspections
+
+Job history and summary views
+
+Exportable reports (PDF / shareable formats)
+
+Authentication and user accounts
+
+Mobile-focused UX improvements
+
+🧱 Tech Stack
+
+Frontend: React + TypeScript
+
+UI Framework: Material UI (MUI)
+
+Build Tool: Vite
+
+Version Control: Git + GitHub
+
+🧩 Architecture Notes
+
+This project focuses on:
+
+reusable form components
+
+clear separation of concerns
+
+scalable validation logic
+
+maintainable UI patterns
+
+Login and signup flows use shared components with configurable behavior to avoid duplicated logic while maintaining proper UX for each use case.
+
+📸 Screenshots
+
+Screenshots will be added as the UI stabilizes.
+
+Planned views:
+
+Login screen
+
+Signup screen
+
+Leak detection job form
+
+Job summary view
+
+🚧 Project Status
+
+LeakLog is an active work in progress.
+
+It is being developed as:
+
+a practical industry tool concept, and
+
+a portfolio project demonstrating real-world frontend architecture and form handling.
+
+🧠 Learning & Goals
+
+This project emphasizes:
+
+building real, non-demo features
+
+solving practical UX problems
+
+clean React component architecture
+
+preparing code for future backend integration
+
+📄 License
+
+License to be determined once the project scope is finalized.
+
+👋 Author
+
+Built by NxtGenCode
+GitHub: https://github.com/NxtGenCode
