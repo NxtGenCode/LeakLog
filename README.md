@@ -1,4 +1,4 @@
-LeakLog 💧
+# LeakLog 💧
 
 A leak detection job documentation web app
 
@@ -6,7 +6,7 @@ LeakLog is a lightweight web application built to document leak detection jobs c
 
 This project is currently scoped specifically for leak detection workflows.
 
-🧭 Why LeakLog
+# 🧭 Why LeakLog
 
 Leak detection jobs often require quick documentation under time pressure. Notes, photos, and details are commonly spread across phones, paper, or multiple apps.
 
@@ -20,7 +20,7 @@ provide consistent, review-ready records
 
 The goal is not to overcomplicate the workflow, but to support how technicians actually work in the field.
 
-✨ Features
+# ✨ Features
 Current
 
 Leak detection job documentation
@@ -45,7 +45,7 @@ Authentication and user accounts
 
 Mobile-focused UX improvements
 
-🧱 Tech Stack
+# 🧱 Tech Stack
 
 Frontend: React + TypeScript
 
@@ -55,7 +55,7 @@ Build Tool: Vite
 
 Version Control: Git + GitHub
 
-🧩 Architecture Notes
+# 🧩 Architecture Notes
 
 This project focuses on:
 
@@ -69,7 +69,7 @@ maintainable UI patterns
 
 Login and signup flows use shared components with configurable behavior to avoid duplicated logic while maintaining proper UX for each use case.
 
-📸 Screenshots
+# 📸 Screenshots
 
 Screenshots will be added as the UI stabilizes.
 
@@ -83,7 +83,7 @@ Leak detection job form
 
 Job summary view
 
-🚧 Project Status
+# 🚧 Project Status
 
 LeakLog is an active work in progress.
 
@@ -93,7 +93,7 @@ a practical industry tool concept, and
 
 a portfolio project demonstrating real-world frontend architecture and form handling.
 
-🧠 Learning & Goals
+# 🧠 Learning & Goals
 
 This project emphasizes:
 
@@ -105,11 +105,11 @@ clean React component architecture
 
 preparing code for future backend integration
 
-📄 License
+# 📄 License
 
 License to be determined once the project scope is finalized.
 
-👋 Author
+# 👋 Author
 
 Built by NxtGenCode
 GitHub: https://github.com/NxtGenCode
