@@ -1,8 +1,25 @@
-import { Box, AppBar, Toolbar, Drawer } from '@mui/material';
+import { Box } from '@mui/material';
 import LoginForm from '../components/auth/LoginForm';
-import MyLogo from '../assets/logo.png';
 import SignUpForm from '../components/auth/SignUpForm';
+
 import {useState} from 'react';
+import { Link } from 'react-router-dom';
+import { keyframes } from "@mui/system";
+
+const breathe = keyframes`
+  0% {
+    background-position: 0% 50%;
+    filter: brightness(0.95);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: brightness(1.05);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: brightness(0.95);
+  }
+`;
 
 export default function AuthPage() {
   const [mode, setMode] = useState<"login" | "signup">("login");
@@ -19,49 +36,46 @@ export default function AuthPage() {
     <Box
       sx={{
         minHeight: "100vh",
+        height:"100%",
+        width: "100%",
+        overflowX: "hidden",
         display: "flex",
         flexDirection: "column",
-      }}
+        background: `
+          linear-gradient(
+            135deg,
+          #273064,
+          #1E2236,
+          #1e254e,
+          #1e254e
+          )
+        `,
+        backgroundSize: "300% 300%",
+        animation: `${breathe} 30s ease infinite`,
+          }}
     >
-      {/* App Bar */}
-      <AppBar position="sticky">
-        <Toolbar variant="dense" sx={{ height: "48px" }}>
-          <Box
-            component="img"
-            src={MyLogo}
-            alt="Your Logo"
-            sx={{
-              height: 80,
-              width: 160,
-              ml: -2,
-            }}
-          />
-        </Toolbar>
-      </AppBar>
-
       {/* Centered auth area */}
       <Box
+        id="idk"
         sx={{
           flex: 1,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          bgcolor:'#2C50AB'
         }}
       >
-        {/* 🔒 AUTH SLOT (fixed size) */}
+        {/* AUTH SLOT */}
         <Box
           sx={{
             width: 550,
-            height: 620, // pick max of login/signup
             display: "flex",
+            justifyContent:"center",
             flexDirection: "column",
           }}
         >
           {mode === "login" ? (
             <LoginForm onGoToSignup={() => setMode("signup")} onSubmit={() => {}} />
           ) : (
-            
             <SignUpForm onGoToLogin={() => setMode("login")} onSubmit={handleLoginSubmit} />
           )}
         </Box>

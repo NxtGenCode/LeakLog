@@ -12,7 +12,6 @@ export default function SignUpButton({onClick}:SignUpButtonProps) {
                 display:'block',
                 margin:'0px',
                 color:'white',
-                bgColor:'black',
                 width:"100%",
             }}
             onClick={onClick}

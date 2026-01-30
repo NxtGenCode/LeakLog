@@ -1,9 +1,8 @@
 
-import React, { useMemo, useState } from "react";
-import { Box, Typography, TextField, FormControl, OutlinedInput, InputAdornment, IconButton, Divider, Button } from '@mui/material';
+import React, { useState } from "react";
+import { Box, Typography, Divider, Button, TextField } from '@mui/material';
 
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
+
 import PasswordField from './PasswordField';
 import ConfirmPasswordField from "./ConfirmPasswordField";
 import EmailField from "./EmailField";
@@ -17,11 +16,11 @@ export default function SignUpForm({onGoToLogin, onSubmit}:SignUpFormProps) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [showPassword, setShowPassword] = useState(false);
-    const handleClickShowPassword = () => setShowPassword(!showPassword);
-    const handleMouseDownPassword = () => setShowPassword(!showPassword);
-    const handleMouseUpPassword = () => function() {};
     
+    const showRules = false; 
+    const showFeedback = false;
+    const nameValid = true;
+
     const handleSignUpClick = () => {
         // basic guard (optional)
         if (!email.trim() || !password) {
@@ -52,11 +51,102 @@ export default function SignUpForm({onGoToLogin, onSubmit}:SignUpFormProps) {
                 border: 2,
                 borderColor: "black",
                 backgroundColor:"#121212",
-                padding: "24px"
+                padding: "24px",
+                margin: "12px",
+                borderRadius: "18px"
             }}>
             <Typography id="loginFormTitle" display="flex" sx={{
                 display:'flex', position:'relative', minHeight: 0
             }}>Create an account</Typography>
+
+
+
+            <Box display="flex" gap="20px">
+                <Box sx={{
+                    display:'flex',
+                    flexDirection:'column',
+                    width:'50%',
+                    alignItems:'center',
+                    justifyContent:'center'
+                }}>
+                    <Typography id="typographyName" sx={{
+                        color:'white'
+                    }}>First Name:</Typography>
+                <TextField fullWidth id="textFieldName" sx={{
+                    borderRadius: 2,
+                    marginBottom: "12px",
+                    
+                    "& .MuiInputBase-input": {
+                    height: "10px",
+                    width:"50px",
+                    color: "#000000",
+                    },
+
+                    "& .MuiFormHelperText-root": {
+                    color:
+                        showRules && showFeedback
+                        ? nameValid
+                            ? "success.main"
+                            : "error.main"
+                        : "transparent",
+                        backgroundColor: "transparent",
+                        marginLeft: 0,
+                        paddingLeft: 0,
+                    },
+
+                    // background ONLY on the input
+                    "& .MuiOutlinedInput-root": {
+                        backgroundColor: "white",
+                        borderRadius: 2,
+                    },
+                }}>
+
+                </TextField>
+                </Box>
+
+                <Box sx={{
+                    display:'flex',
+                    flexDirection:'column',
+                    width:'50%',
+                    alignItems:'center',
+                    justifyContent:'center'
+                }}>
+                    <Typography id="typographyName" sx={{
+                        color:'white'
+                    }}>Last Name:</Typography>
+                    
+
+                    <TextField fullWidth id="textFieldName" sx={{
+                        borderRadius: 2,
+                        marginBottom: "12px",
+
+                        "& .MuiInputBase-input": {
+                        height: "10px",
+                        width:"50px",
+                        color: "#000000",
+                        },
+
+                        "& .MuiFormHelperText-root": {
+                        color:
+                            showRules && showFeedback
+                            ? nameValid
+                                ? "success.main"
+                                : "error.main"
+                            : "transparent",
+                            backgroundColor: "transparent",
+                            marginLeft: 0,
+                            paddingLeft: 0,
+                        },
+
+                        // background ONLY on the input
+                        "& .MuiOutlinedInput-root": {
+                            backgroundColor: "white",
+                            borderRadius: 2
+                        },
+                    }}>
+                    </TextField>
+                </Box>
+            </Box>
             <Typography id="typographyEmail"
                 sx={{color:'white', position:'relative', display:'flex', minHeight: 0}}>
                     Email:
@@ -83,7 +173,7 @@ export default function SignUpForm({onGoToLogin, onSubmit}:SignUpFormProps) {
 
         <Button onClick={handleSignUpClick} sx={{
                 color:'white',
-                bgColor:'black',
+                backgroundColor:'#0e7e1b',
                 width:"100%",
                 minHeight: 0,
                 mt:'auto'

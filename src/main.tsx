@@ -1,25 +1,55 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+  Outlet,
+} from "react-router-dom";
 
-import './index.css'
-import './App.css'
-import App from './App.tsx'
-import DashboardPage from './pages/DashboardPage.tsx'
+import AppLayout from "./layouts/AppLayout";
+import AuthLayout from "./layouts/AuthLayout";
+import AuthPage from "./pages/AuthPage";
+import DashboardPage from "./pages/DashboardPage";
+import ReportsPage from "./pages/ReportsPage";
+import ReportEditorPage from "./pages/ReportEditorPage";
+
+import "./index.css";
+import "./App.css";
+
+const isLoggedIn = false;
 
 const router = createBrowserRouter([
   {
-    path:'/',
-    element:<App></App>
+    element: <AuthLayout />,
+    children: [
+      {
+        path: "/",
+        element: isLoggedIn ? <Navigate to="/dashboard" /> : <AuthPage />,
+      },
+    ],
   },
   {
-    path:'/dashboard',
-    element:<DashboardPage></DashboardPage>
-  }
+    element: <AppLayout />,
+    children: [
+      {
+        path: "/dashboard",
+        element: <DashboardPage />,
+      },
+      {
+        path: "/reports",
+        element: <ReportsPage />,
+      },
+      {
+        path: "/reports/new",
+        element: <ReportEditorPage />,
+      },
+    ],
+  },
 ]);
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router}/>
-  </StrictMode>,
+    <RouterProvider router={router} />
+  </StrictMode>
 );
