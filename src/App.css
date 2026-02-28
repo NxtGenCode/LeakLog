@@ -3,7 +3,6 @@
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
-  background: black;
 }
 
 html, body, #root {
@@ -11,7 +10,6 @@ html, body, #root {
   margin:0;
   padding:0;
   border:0;
-  background-color: #0F0F10;
 }
 
 aside {
@@ -22,8 +20,16 @@ aside {
   min-width:150px;
 }
 
+#reportEditorPageFooter {
+  display: block;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 .MuiStack-root {
-  background-color: #0F172A;
+  background-color: invisible;
 }
 
 #loginFormContainer {

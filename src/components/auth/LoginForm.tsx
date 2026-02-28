@@ -11,6 +11,8 @@ type LoginFormProps = {
   onSubmit: (email: string, password: string, rememberMe: boolean) => void;
 };
 
+const APP_NAME = "Leak Data Pro";
+
 export default function LoginForm({onGoToSignup, onSubmit}:LoginFormProps) {
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
@@ -25,10 +27,12 @@ export default function LoginForm({onGoToSignup, onSubmit}:LoginFormProps) {
             console.log("Missing email or password");
             return;
         }
+
         if (!password) {
             console.log("Missing password");
             return;
         }
+
         console.log("submitted!")
         onSubmit(email, password, false);
     };
@@ -45,7 +49,7 @@ export default function LoginForm({onGoToSignup, onSubmit}:LoginFormProps) {
             borderRadius: "18px"
           }}>
 
-          <Typography id="loginFormTitle" display="flex" justifyContent="center" color="white">Leak Data Pro</Typography>
+          <Typography id="loginFormTitle" display="flex" justifyContent="center" color="red">{APP_NAME}</Typography>
           
           <Typography id="typographyEmail"
             sx={{color:'white', position:'relative', display:'flex'}}

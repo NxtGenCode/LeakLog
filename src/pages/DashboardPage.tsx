@@ -1,10 +1,26 @@
 import { AppBar, Toolbar, Box, Drawer, Grid, Typography, Card, CardContent, Stack, Button} from '@mui/material'
 import MyLogo from '../assets/logo.png'
-import { Link } from 'react-router-dom';
 
+import { Link } from 'react-router-dom';
+import { keyframes } from "@mui/system";
 type DashboardPageProps ={
   OnGoToReportsPage: () => void;
 };
+
+const breathe = keyframes`
+  0% {
+    background-position: 0% 50%;
+    filter: brightness(0.95);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: brightness(1.05);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: brightness(0.95);
+  }
+`;
 
 export default function DashboardPage({OnGoToReportsPage}:DashboardPageProps) {
 
@@ -14,7 +30,23 @@ export default function DashboardPage({OnGoToReportsPage}:DashboardPageProps) {
     ];
 
     return (
-    <Box sx={{ bgcolor: "#0D1321", p: 2 }}>
+    <Box sx={
+        {
+          height:'100vh',
+          width:'100%',
+          p: 2,
+          background: `
+          linear-gradient(
+            135deg,
+          #273064,
+          #1E2236,
+          #1e254e,
+          #1e254e
+          )`,
+          backgroundSize: "300% 300%",
+          animation: `${breathe} 30s ease infinite`,
+        }
+      }>
       <Typography variant="h5" sx={{ color: "white", mb: 2 }}>
         Dashboard
       </Typography>

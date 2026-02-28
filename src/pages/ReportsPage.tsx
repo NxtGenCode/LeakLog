@@ -1,13 +1,27 @@
 import { useState } from 'react'
-import { Box, TextField, Stack, Button, Typography, Autocomplete, IconButton} from '@mui/material'
+import { Box, TextField, Stack, Button, Typography, Autocomplete} from '@mui/material'
 
 import HouseImage from '../assets/front_of_house.png'
-import MenuIcon from '@mui/icons-material/Menu'
-import MyLogo from '../assets/logo.png'
 
+import { keyframes } from "@mui/system";
 import { Link } from 'react-router-dom';
 
 import JobButton from '../components/JobButton.js'
+
+const breathe = keyframes`
+  0% {
+    background-position: 0% 50%;
+    filter: brightness(0.95);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: brightness(1.05);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: brightness(0.95);
+  }
+`;
 
 export default function ReportsPage() {
     const [jobs, setJobs] = useState([
@@ -45,12 +59,26 @@ export default function ReportsPage() {
         cityStateZip: "Los Angeles, CA 90001",
         customerName: "Steve Williams",
         image: HouseImage,
-    },
-    ]);
+    }]);
 
     return (
-        <Box component="div" flex="1" display="flex" bgcolor="#1B211A" width="100%" height="100vh" flexDirection="column">  
-            <Stack direction="column" useFlexGap spacing={2} sx={{
+        <Box component="div" flex="1" display="flex" width="100%" flexDirection="column" sx=
+        {
+            {
+                background: `
+                linear-gradient(
+                    135deg,
+                #273064,
+                #1E2236,
+                #1e254e,
+                #1e254e
+                )
+                `,
+                backgroundSize: "300% 300%",
+                animation: `${breathe} 30s ease infinite`,
+            }
+        }>  
+            <Stack direction="column" useFlexGap sx={{
                 padding:'10px',
                 bgcolor:'#invisible',
                 alignItems:'center',
@@ -74,6 +102,7 @@ export default function ReportsPage() {
                             inputLabel: {
                                 sx: {
                                 color: "#9CA3AF", // default label
+                                borderColor: "red",
                                 "&.Mui-focused": {
                                     color: "#3B82F6", // focused label
                                 },
@@ -85,7 +114,8 @@ export default function ReportsPage() {
 
                 <Button variant="contained" component={Link} to="/reports/new" sx={{
                     width:"50%",
-                    alignItems:'end'
+                    alignItems:'end',
+                    mt:"12px",
                 }}>
                     New Job
                 </Button>

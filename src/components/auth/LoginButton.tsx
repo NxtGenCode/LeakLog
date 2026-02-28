@@ -13,7 +13,7 @@ export default function LoginButton({onClick, path}:LoginButtonProps) {
             {
                 display:'flex',
                 margin:'0px',
-                color:'white',
+                color:'primary',
                 width:"100%",
                 marginBottom:"4px"
             }}
